@@ -1,0 +1,76 @@
+https://tiki.vn/dien-thoai-may-tinh-bang/c1789 (web para probar también!)
+Best Practices for Web Scraping in 2025 (https://www.scraperapi.com/web-scraping/best-practices/)
+Python Web Scraping: Step-By-Step Tutorial (https://www.scraperapi.com/web-scraping/python/)
+CSS Selectors Cheat Sheet for Web Scraping: Master HTML Parsing in 2025 (https://www.scraperapi.com/blog/css-selectors-cheat-sheet/)
+Scrapy - Selectors (https://www.geeksforgeeks.org/scrapy-selectors/)
+https://stackoverflow.com/questions/69148476/get-text-inside-elements-from-class-name-using-scrapy (Here is a reasonable list of selectors both for css and xpath.)
+
+
+-Steps to test scrape fecth from scrapy shell:
+
+1-cd C:\Users\potli\source\repos\
+2-cd .\scrapy_basics\
+3-.\venv\Scripts\activate (activamos el entorno de python)
+4-cd .\cubadebatescraper\ (nos posicionamos dentro del proyecto de scrapy)
+5-scrapy shell
+6->>> fetch('http://www.cubadebate.cu/')
+7->>> response
+<200 http://www.cubadebate.cu/>
+
+selector for each of this css class (one by one)
+
+8->>> response.css('.image_post')
+[<Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' image_post ')]" data='<div class="image_post libros-libres ...'>, <Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' image_post ')]" data='<div class="image_post deporte-temas ...'>, <Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' image_post ')]" data='<div class="image_post economia-temas...'>, <Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' image_post ')]" data='<div class="image_post especiales pol...'>, <Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' image_post ')]" data='<div class="image_post noticias socie...'>, <Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' image_post ')]" data='<div class="image_post tecnologia-tem...'>, <Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' image_post ')]" data='<div class="image_post noticias polit...'>, <Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' image_post ')]" data='<div class="image_post economia-temas...'>]
+9->>> response.css('.bigimage_post')
+[<Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' bigimage_post ')]" data='<div class="bigimage_post noticias po...'>, <Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' bigimage_post ')]" data='<div class="bigimage_post economia-te...'>]
+10->>> response.css('.newspaper_post')
+[<Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' newspaper_post ')]" data='<div class="newspaper_post medios-tem...'>]
+11->>> response.css('.gallery_post')
+[<Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' gallery_post ')]" data='<div class="gallery_post noticias soc...'>]
+
+selector for each of this css class (together)
+
+12-response.css('.image_post,.bigimage_post,.gallery_post,.newspaper_post')
+13-To get the first article:
+>>> response.css('.image_post').get()
+'<div class="image_post libros-libres politica-temas  generic">        <h3 class="cat_title"><a href="http://www.cubadebate.cu/categoria/libros-libres/" rel="category tag" title="Ver todos los artículos de Libros Libres">Libros Libres</a>, <a href="http://www.cubadebate.cu/categoria/temas/politica-temas/" rel="category tag" title="Ver todos los artículos de Política">Política</a>\n    \xa0»        </h3>    <div class="title"><a href="http://www.cubadebate.cu/libros-libres/2025/06/10/descargue-el-libro-una-pagina-para-fidel-pdf/" rel="bookmark">Descargue el libro: Una página para Fidel (+ PDF)</a></div><div class="meta">\n    <time datetime="2025-06-10 09:46:00">10 junio 2025</time>    <span class="separator">|</span>\n        <span class="comment_count">\n            <a href="http://www.cubadebate.cu/libros-libres/2025/06/10/descargue-el-libro-una-pagina-para-fidel-pdf/#respond" title="Comentarios en Descargue el libro: Una página para Fidel (+ PDF)" class="no_comment">+</a>\n        </span></div>\n    <div class="spoiler">        <a class="left media" href="http://www.cubadebate.cu/libros-libres/2025/06/10/descargue-el-libro-una-pagina-para-fidel-pdf/" rel="bookmark" title="Enlace aDescargue el libro: Una página para Fidel (+ PDF)"><img width="150" height="125" src="http://media.cubadebate.cu/wp-content/uploads/2025/06/una_pagina_para_fidel-150x125.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" loading="lazy" srcset="http://media.cubadebate.cu/wp-content/uploads/2025/06/una_pagina_para_fidel-150x125.jpg 150w, http://media.cubadebate.cu/wp-content/uploads/2025/06/una_pagina_para_fidel-300x250.jpg 300w, http://media.cubadebate.cu/wp-content/uploads/2025/06/una_pagina_para_fidel-180x150.jpg 180w" sizes="(max-width: 150px) 100vw, 150px">\n        </a>        <div class="excerpt"><p>Leamos estas páginas con fruición y mística. Son fruto de un sentimiento colectivo que brega por garantizar la permanencia de la humanidad y del planeta. No hay exageración posible en esta idea-sentimiento. Ante la escalada de guerras cada vez más absurdas e intrincadas estratagemas financieras para expoliar poblaciones enteras, la única alternativa es idear y sentir en conjunto una sociedad de iguales.</p>\n        </div>    </div>\n</div>'
+
+14-Get details
+>>> articulos = response.css('.image_post')
+>>> len(articulos)
+8
+>>> articulo=articulos[0]
+>>> articulo.css('.title::text').get()
+>>> articulo
+<Selector query="descendant-or-self::*[@class and contains(concat(' ', normalize-space(@class), ' '), ' image_post ')]" data='<div class="image_post libros-libres ...'>
+>>> articulo.css('div.title::text').get()
+>>> articulo.css('a::text').get()
+'Libros Libres'
+>>> articulo.css('h3 a::text').get()
+'Libros Libres'
+>>> articulo.css('div.title a::text').get()
+'Descargue el libro: Una página para Fidel (+ PDF)'
+
+
+
+Errors and fixs:
+
+1-Python was not found; run without arguments to install from the Microsoft Store:
+ python3 -m venv venv,asi daba el error anterior, me funcionó de la siguiente manera: python -m venv venv
+
+2-The term 'source' is not recognized as the name of a cmdlet, function, script file, or operable program.
+source is not a powershell command - you cannot use it. Instead, use the powershell script that venv provides: .\projects\Scripts\activate
+me funcionó de la siguiente manera: .\venv\Scripts\activate
+
+3-HTTP status code is not handled or not allowed (https://stackoverflow.com/questions/46746701/scrapy-http-status-code-is-not-handled-or-not-allowed/46747093#46747093)
+
+Go to your settings.py in your scrapy project and set your user-agent to a non-default value. Either your own project name (it probably should not contain the word scrapy) or a standard browser's user-agent.
+
+USER_AGENT='my-cool-project (http://example.com)'
+
+scrapy shell -s USER_AGENT='custom user agent' 'http://www.cubadebate.cu/'
+
+4-scrapy fetch site return 500 internal server error (se resuelve de la siguiente manera:)
+  Descomenta la línea que dice '# Crawl responsibly by identifying yourself (and your website) on the user-agent' en el fichero settings.py y especifica algunos datos personales
+  
+  Sometimes, the websites block specific user-agents to prevent from crawling and sending too many requests. (https://stackoverflow.com/questions/46746701/scrapy-http-status-code-is-not-handled-or-not-allowed)
