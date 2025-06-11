@@ -1,0 +1,26 @@
+# https://www.docker.com/blog/how-to-use-the-postgres-docker-official-image/
+# https://medium.com/@agusmahari/docker-how-to-install-postgresql-using-docker-compose-d646c793f216
+
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=S3cret
+      - POSTGRES_USER=citizix_user
+      - POSTGRES_DB=citizix_db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+ 
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8280:8080
