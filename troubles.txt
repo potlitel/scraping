@@ -1,9 +1,36 @@
-https://tiki.vn/dien-thoai-may-tinh-bang/c1789 (web para probar también!)
+https://tiki.vn/dien-thoai-may-tinh-bang/c1789 (web para probar también!) (https://stackoverflow.com/questions/46746701/scrapy-http-status-code-is-not-handled-or-not-allowed)
 Best Practices for Web Scraping in 2025 (https://www.scraperapi.com/web-scraping/best-practices/)
 Python Web Scraping: Step-By-Step Tutorial (https://www.scraperapi.com/web-scraping/python/)
 CSS Selectors Cheat Sheet for Web Scraping: Master HTML Parsing in 2025 (https://www.scraperapi.com/blog/css-selectors-cheat-sheet/)
 Scrapy - Selectors (https://www.geeksforgeeks.org/scrapy-selectors/)
 https://stackoverflow.com/questions/69148476/get-text-inside-elements-from-class-name-using-scrapy (Here is a reasonable list of selectors both for css and xpath.)
+How to Scrape Data From Facebook Accounts | Python Tutorial (https://www.youtube.com/watch?v=WnFAaWYecJs)
+https://scrapeops.io/python-scrapy-playbook/scrapy-beginners-guide/#next-steps
+https://scrapeops.io/python-scrapy-playbook/scrapy-beginners-guide-cleaning-data/
+https://scrapeops.io/python-scrapy-playbook/scrapy-beginners-guide-storing-data/
+
+Sitios de combos y venta de alimentos Cubanos:
+	-https://www.katapulk.com/cu/home
+	-https://www.lacubanamia.com/
+
+
+listado de precios mayoristas de alimentos en cuba (googlear)
+grupos de facebook venta de alimentos en cuba (googlear)
+
+->python scrapy facebook api:
+ 	-https://gologin.com/blog/web-scraping-facebook/
+	-https://apify.com/apify/facebook-posts-scraper/api/python
+	-https://github.com/bhagyashreeborate/Facebook-Web-Scraper-Python
+	-https://dev.to/shaikhsajid1111/scrape-facebook-public-pages-without-an-api-key-or-limitations-43d4 (OJO!)
+	-https://stackoverflow.com/questions/62377290/is-it-still-possible-to-scrape-data-from-public-facebook-pages
+	-https://www.youtube.com/watch?v=WnFAaWYecJs
+	-https://medium.com/@datajournal/best-facebook-scrapers-e36f01b52e4f
+	-https://www.octoparse.com/
+	-https://github.com/kevinzg/facebook-scraper
+	-https://github.com/apurvmishra99/facebook-scraper-selenium
+	-https://github.com/harismuneer/Ultimate-Social-Scrapers
+	-https://github.com/SSujitX/facebook-pages-scraper
+
 
 
 -Steps to test scrape fecth from scrapy shell:

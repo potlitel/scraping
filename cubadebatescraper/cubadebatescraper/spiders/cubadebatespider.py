@@ -16,6 +16,10 @@ class CubadebatespiderSpider(scrapy.Spider):
             #here we put the data returned into the format we want to output for our csv or json file
             yield{
                 'title' : article.css('div.title a::text').get(),
+                'url': article.css('div.title a').attrib['href'],
+                'tags': article.css('h3.cat_title a::text').extract(),
+                'image_text':'',
+                'shore_text':article.css('div.excerpt p::text').get(),
             }
         next_page = response.css('[rel="next"] ::attr(href)').get()
 
