@@ -1,6 +1,7 @@
 # scraping
 
 
+
 ## Output
 
 #### This is an example of an output segment from the scraping process.

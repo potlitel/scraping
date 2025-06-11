@@ -16,7 +16,7 @@ ADDONS = {}
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = "cubadebatescraper (+http://www.cubadebate.cu)"
+#USER_AGENT = "cubadebatescraper (+http://www.cubadebate.cu)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -25,9 +25,18 @@ ROBOTSTXT_OBEY = True
 RETRY_ENABLED = True
 RETRY_TIMES = 2  # Retry a failed request twice
 DOWNLOAD_TIMEOUT = 15  # Timeout after 15 seconds
-# DOWNLOADER_MIDDLEWARES = {
-#     'scrapy.downloadermiddlewares.httperror.HttpErrorMiddleware': 50,
-# }
+
+DOWNLOADER_MIDDLEWARES = {
+
+    ## Rotating User Agents
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+    'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
+
+    ## Rotating Free Proxies
+    # 'scrapy_proxy_pool.middlewares.ProxyPoolMiddleware': 610,
+    # 'scrapy_proxy_pool.middlewares.BanDetectionMiddleware': 620,
+}
+
 HTTPERROR_ALLOWED_CODES = [403, 404, 500]
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
