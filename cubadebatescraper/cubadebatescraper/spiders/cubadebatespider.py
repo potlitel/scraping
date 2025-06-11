@@ -18,7 +18,7 @@ class CubadebatespiderSpider(scrapy.Spider):
                 'title' : article.css('div.title a::text').get(),
                 'url': article.css('div.title a').attrib['href'],
                 'tags': article.css('h3.cat_title a::text').extract(),
-                'image_text':'',
+                'image_text':article.css('div.spoiler img::attr(src)').get(),
                 'shore_text':article.css('div.excerpt p::text').get(),
             }
         next_page = response.css('[rel="next"] ::attr(href)').get()
