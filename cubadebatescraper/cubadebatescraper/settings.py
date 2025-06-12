@@ -40,7 +40,7 @@ DOWNLOADER_MIDDLEWARES = {
 HTTPERROR_ALLOWED_CODES = [403, 404, 500]
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 32
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -85,6 +85,7 @@ HTTPERROR_ALLOWED_CODES = [403, 404, 500]
 ITEM_PIPELINES = {
 #   "cubadebatescraper.pipelines.CubadebatescraperPipeline": 300,
     "cubadebatescraper.pipelines.DuplicatesPipeline": 100,
+    "cubadebatescraper.pipelines.SavingToPostgresPipeline": 200,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
