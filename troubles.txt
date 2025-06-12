@@ -9,6 +9,12 @@ https://scrapeops.io/python-scrapy-playbook/scrapy-beginners-guide/#next-steps
 https://scrapeops.io/python-scrapy-playbook/scrapy-beginners-guide-cleaning-data/
 https://scrapeops.io/python-scrapy-playbook/scrapy-beginners-guide-storing-data/
 
+python scrapy proxy:
+	-https://github.com/aivarsk/scrapy-proxies
+	-https://oxylabs.io/resources/integrations/scrapy-proxy
+	-https://scrapeops.io/python-scrapy-playbook/scrapy-rotating-proxy-guide/
+	-https://pypi.org/project/scrapy-rotating-proxies/
+
 Sitios de combos y venta de alimentos Cubanos:
 	-https://www.katapulk.com/cu/home
 	-https://www.lacubanamia.com/
