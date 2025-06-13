@@ -7,6 +7,8 @@ import scrapy
 
 
 class CubadebatescraperItem(scrapy.Item):
+    # Field() acts as a placeholder for whatever we're going to put inside the scrapy.Item.
+    # This allows us to pass in anything for custom processing or add default values.
     # define the fields for your item here like:
     title      = scrapy.Field()
     url        = scrapy.Field()

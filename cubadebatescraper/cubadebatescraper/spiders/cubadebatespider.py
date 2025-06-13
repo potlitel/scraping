@@ -14,20 +14,14 @@ class CubadebatespiderSpider(scrapy.Spider):
     def parse(self, response):
         #Get all the divs that have the following css classes assigned.
         articles = response.css('.image_post,.bigimage_post,.gallery_post,.newspaper_post')
-        # intranet_item = CubadebatescraperItem()
         for article in articles:
-            #here we put the data returned into the format we want to output for our csv or json file
-            # yield{
-            #        'title' : article.css('div.title a::text').get(),
-            #        'url' : article.css('div.title a').attrib['href'],
-            #        'tags' : article.css('h3.cat_title a::text').extract(),
-            #        'image_text' : article.css('div.spoiler img::attr(src)').get(),
-            #        'shore_text' : article.css('div.excerpt p::text').get()
-            #     }
             news = CubadebateNewLoader(item=CubadebatescraperItem(), selector=article)
             news.add_css('title', "div.title a::text")
             news.add_css('url', "div.title a")
-            news.add_css('tags', "h3.cat_title a::text")
+            # news.add_css('tags', "h3.cat_title a::text")
+            tags = article.css('h3.cat_title a::text').getall()
+            news.add_value('tags', tags)
+            # news.add_value('tags', article.css("h3.cat_title").xpath("a::text").getall())
             news.add_css('image_text', "div.spoiler img::attr(src)")
             news.add_css('shore_text', "div.excerpt p::text")
             # intranet_item['title']      = article.css('div.title a::text').get()

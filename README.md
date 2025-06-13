@@ -1,6 +1,19 @@
 # scraping
 
 
+```bash
+
+CREATE TABLE IF NOT EXISTS cubadebate_news (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255),
+    url TEXT,
+    tags VARCHAR(255),
+    image_text VARCHAR(255),
+    shore_text TEXT
+	);
+
+```
+
 
 ## Output
 

@@ -30,6 +30,21 @@ class SavingToPostgresPipeline(object):
 
     def __init__(self):
         self.create_connection()
+        # https://scrapeops.io/python-scrapy-playbook/scrapy-save-data-postgres/ (include: Only Saving New Data)
+        ## Create cursor, used to execute commands
+        self.cur = self.connection.cursor()
+        
+        ## Create quotes table if none exists
+        self.cur.execute("""
+        CREATE TABLE IF NOT EXISTS catalogs.public.cubadebate_news (
+            id SERIAL PRIMARY KEY,
+            title VARCHAR(255),
+            url TEXT,
+            tags VARCHAR(255),
+            image_text VARCHAR(255),
+            shore_text TEXT
+            );
+        """)
 
 
     def create_connection(self):
@@ -49,7 +64,8 @@ class SavingToPostgresPipeline(object):
 
     def store_db(self, item):
         try:
-            self.curr.execute(""" insert into cubadebate_news (title, url, tags, image_text, shore_text) values (%s, %s, %s, %s, %s)""", (
+            self.curr.execute(""" insert into cubadebate_news (title, url, tags, image_text, shore_text) values (%s, %s, %s, %s, %s)""", 
+            (
                 item["title"],
                 item["url"],
                 item["tags"],

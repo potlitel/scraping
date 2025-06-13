@@ -1,4 +1,5 @@
-https://tiki.vn/dien-thoai-may-tinh-bang/c1789 (web para probar también!) (https://stackoverflow.com/questions/46746701/scrapy-http-status-code-is-not-handled-or-not-allowed)
+https://tiki.vn/dien-thoai-may-tinh-bang/c1789 (web para probar también el raspado!) (https://stackoverflow.com/questions/46746701/scrapy-http-status-code-is-not-handled-or-not-allowed)
+https://medium.com/hackernoon/archive (web para probar también el raspado!)
 Best Practices for Web Scraping in 2025 (https://www.scraperapi.com/web-scraping/best-practices/)
 Python Web Scraping: Step-By-Step Tutorial (https://www.scraperapi.com/web-scraping/python/)
 CSS Selectors Cheat Sheet for Web Scraping: Master HTML Parsing in 2025 (https://www.scraperapi.com/blog/css-selectors-cheat-sheet/)
@@ -8,6 +9,16 @@ How to Scrape Data From Facebook Accounts | Python Tutorial (https://www.youtube
 https://scrapeops.io/python-scrapy-playbook/scrapy-beginners-guide/#next-steps
 https://scrapeops.io/python-scrapy-playbook/scrapy-beginners-guide-cleaning-data/
 https://scrapeops.io/python-scrapy-playbook/scrapy-beginners-guide-storing-data/
+https://scrapeops.io/python-scrapy-playbook/scrapy-items-loaders/
+https://scrapeops.io/python-scrapy-playbook/scrapy-save-data-postgres/
+https://www.geeksforgeeks.org/python/scrapy-item-loaders/
+https://stackoverflow.com/questions/70597342/scrapy-only-returning-a-single-item-from-list (buen ejemplo de spider)
+https://www.scrapingbee.com/blog/web-scraping-with-scrapy/
+https://app.studyraid.com/en/read/5927/130204/item-loaders-and-processors
+https://dougsgrott.hashnode.dev/web-scraping-medium-articles-with-scrapy-from-simple-to-advanced-part-ii
+
+
+https://github.com/scrapy/quotesbot/tree/master (bueno para documentar)
 
 python scrapy proxy:
 	-https://github.com/aivarsk/scrapy-proxies
